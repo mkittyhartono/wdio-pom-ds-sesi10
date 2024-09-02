@@ -3,9 +3,17 @@ import Page from './page.js';
 
 class LoginPage extends Page {
 
-    get inputUsername () {}
-    get inputPassword () {}
-    get btnSubmit () {}
+    get inputUsername () {
+        return $('#username');
+    }
+
+    get inputPassword () {
+        return $('#password');
+    }
+
+    get btnSubmit () {
+        return $('//input[@type="submit"]');
+    }
 
     open () {
         return super.open("")
