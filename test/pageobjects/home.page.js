@@ -1,4 +1,4 @@
-import { $ } from '@wdio/globals'
+import { $, expect } from '@wdio/globals'
 import Page from "./page";
 
 
@@ -14,6 +14,12 @@ class HomePage extends Page {
     
     get produtImage(){
         return $("#product-photo-sauce-labs-backpack");
+    }
+
+    async ValidateOnHomePage(){
+        expect(await this.cartIcon).toBeExisting();
+        expect(await this.addToCartBtn).toBeExisting();
+        expect(await this.produtImage).toBeExisting();
     }
 
     open () { 

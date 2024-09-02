@@ -4,7 +4,7 @@ import Page from './page.js';
 class LoginPage extends Page {
 
     get userNameTextBox () {
-        return $('#username');
+        return $('#user-name');
     }
 
     get passwordTextBox () {
@@ -12,25 +12,25 @@ class LoginPage extends Page {
     }
 
     get btnLogin () {
-        return $('//input[@type="submit"]');
+        return $('//input[@type="submit"]')
     }
 
     async inputUsername(username){
-        await this.userNameTextBox.setValue(username);
+        await this.userNameTextBox.setValue(username)
     }
 
     async inputPassword(password){
-        await this.passwordTextBox.setValue(password);
+        await this.passwordTextBox.setValue(password)
     }
 
     async clickBtnLogin(){
-        await this.btnLogin.click();
+        await this.btnLogin.click()
     }
 
     async login(username, password){
-        this.inputUsername(username);
-        this.inputPassword(password);
-        this.clickBtnLogin();
+        await this.inputUsername(username)
+        await this.inputPassword(password)
+        await this.clickBtnLogin()
     }
 
     open () {
@@ -38,7 +38,7 @@ class LoginPage extends Page {
     }
 }
 
-export default new LoginPage();
+export default new LoginPage(); 
 
 
 /**
