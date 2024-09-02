@@ -11,7 +11,7 @@ class LoginPage extends Page {
         return $('#password');
     }
 
-    get btnSubmit () {
+    get btnLogin () {
         return $('//input[@type="submit"]');
     }
 
@@ -23,8 +23,14 @@ class LoginPage extends Page {
         await this.passwordTextBox.setValue(password);
     }
 
-    async clickBtnSubmit(){
-        await this.btnSubmit.click();
+    async clickBtnLogin(){
+        await this.btnLogin.click();
+    }
+
+    async login(username, password){
+        this.inputUsername(username);
+        this.inputPassword(password);
+        this.clickBtnLogin();
     }
 
     open () {
