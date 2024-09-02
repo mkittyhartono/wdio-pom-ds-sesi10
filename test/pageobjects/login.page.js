@@ -3,16 +3,28 @@ import Page from './page.js';
 
 class LoginPage extends Page {
 
-    get inputUsername () {
+    get userNameTextBox () {
         return $('#username');
     }
 
-    get inputPassword () {
+    get passwordTextBox () {
         return $('#password');
     }
 
     get btnSubmit () {
         return $('//input[@type="submit"]');
+    }
+
+    async inputUsername(username){
+        await this.userNameTextBox.setValue(username);
+    }
+
+    async inputPassword(password){
+        await this.passwordTextBox.setValue(password);
+    }
+
+    async clickBtnSubmit(){
+        await this.btnSubmit.click();
     }
 
     open () {
