@@ -27,8 +27,10 @@ describe('Test Saucedemo', () => {
         await passwordTextBox.addValue('wrong_password');
         await loginButton.click();
 
-        await browser.pause(5000);
-        await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
-        await expect(browser).toHaveTitle('Swag Labs');
+        const errorMessage = await browser.$('//*[@id="login_button_container"]/div/form/div[3]/h3');
+        await expect(errorMessage).toHaveText('Epic sadface: Username and password do not match any user in this service');
+        // await browser.pause(5000);
+        // await expect(browser).toHaveUrl('https://www.saucedemo.com/inventory.html');
+        // await expect(browser).toHaveTitle('Swag Labs');
     });
 });

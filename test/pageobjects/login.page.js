@@ -15,6 +15,10 @@ class LoginPage extends Page {
         return $('//input[@type="submit"]')
     }
 
+    get errorMessage () {        
+        return $('//*[@id="login_button_container"]/div/form/div[3]/h3')
+    }
+
     async inputUsername(username){
         await this.userNameTextBox.setValue(username)
     }
@@ -31,6 +35,10 @@ class LoginPage extends Page {
         await this.inputUsername(username)
         await this.inputPassword(password)
         await this.clickBtnLogin()
+    }
+
+    async validateWrongPassword(){
+        await expect(this.errorMessage).toHaveText('Epic sadface: Username and password do not match any user in this service');
     }
 
     open () {
